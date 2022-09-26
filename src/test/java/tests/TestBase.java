@@ -68,6 +68,15 @@ public class TestBase extends AbstractTestNGCucumberTests {
 			caps.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, phantomJsArgs);
 			driver = new PhantomJSDriver(caps);
 		}
+		
+		else if (broswerName.equalsIgnoreCase("chrome-headless")){
+			System.setProperty("webdriver.chrome.driver", 
+					System.getProperty("user.dir")+"/drivers/chromedriver.exe");
+			ChromeOptions options =new ChromeOptions();
+			options.addArguments("--headless");
+			options.addArguments("--window-size=1920,1080");
+			driver = new ChromeDriver(options);
+		}
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
 		driver.navigate().to("https://demo.nopcommerce.com");
