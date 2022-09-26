@@ -19,7 +19,7 @@ public void UserCanRegisterSuccssfully()
 	homeobject = new Homepage(driver);
 	homeobject.openRegistrationPage();
 	registerobject = new userRegisterationpage(driver);
-	registerobject.userRegistration("mostafa", "hasan", "test586e7mail@gmail.com", "12345678");
+	registerobject.userRegistration("mostafa", "hasan", "test5e4mail@gmail.com", "12345678");
 	Assert.assertTrue(registerobject.sucessmessage.getText().contains("Your registration completed"));
 	}
 @Test (dependsOnMethods = {"UserCanRegisterSuccssfully"})
@@ -32,6 +32,6 @@ public void RegisteredUserCanLogIn()
 {
 	homeobject.openLoginpage();
 	loginobject = new LoginPage(driver);
-	loginobject.userLogin("test778email@gmail.com", "7896564");
+	loginobject.userLogin("test5e4mail@gmail.com", "12345678");
 }
 }
